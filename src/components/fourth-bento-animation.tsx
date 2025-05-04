@@ -1,267 +1,81 @@
 "use client";
 
 import {
-  AnimatePresence,
-  motion,
-  useInView,
-  useMotionValue,
-  useSpring,
-} from "motion/react";
-import { useEffect, useRef, useState } from "react";
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Pointer } from "@/components/magicui/pointer";
+import { motion } from "motion/react";
 
-interface BoxConfig {
-  title: string;
-  className: string;
-}
-
-const boxConfigs: BoxConfig[] = [
-  {
-    title: "Bento grid",
-    className: "bg-secondary text-white",
-  },
-  {
-    title: "Landing Page",
-    className: "bg-secondary/40 text-white",
-  },
-  {
-    title: "Add Task",
-    className:
-      "bg-secondary/20 border border-secondary border-dashed text-secondary",
-  },
-];
-
-interface FourthBentoAnimationProps {
-  startAnimationDelay?: number;
-  once?: boolean;
-}
-
-export function FourthBentoAnimation({
-  once = false,
-  startAnimationDelay = 0,
-}: FourthBentoAnimationProps) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(containerRef, { once });
-  const [translateXValues, setTranslateXValues] = useState<number[]>([]);
-
-  const mouseX = useMotionValue(0);
-  const smoothX = useSpring(mouseX, {
-    damping: 50,
-    stiffness: 400,
-  });
-
-  useEffect(() => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      mouseX.set(rect.width / 2);
-    }
-  }, [mouseX]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      const adjustedX = e.clientX - rect.left + 100;
-      mouseX.set(adjustedX);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      mouseX.set(rect.width / 2);
-    }
-  };
-
-  useEffect(() => {
-    const updateWidth = () => {
-      if (containerRef.current) {
-        const containerWidth =
-          containerRef.current.getBoundingClientRect().width;
-        const itemWidth = 250;
-        const numberOfItems = 3;
-        const totalItemsWidth = itemWidth * numberOfItems;
-        const availableSpace = containerWidth - totalItemsWidth;
-        const gap = availableSpace / (numberOfItems - 1);
-
-        const newTranslateXValues = Array.from(
-          { length: numberOfItems },
-          (_, index) => {
-            return ((itemWidth + gap) * index) / 2;
-          },
-        );
-        setTranslateXValues(newTranslateXValues);
-      }
-    };
-
-    updateWidth();
-
-    window.addEventListener("resize", updateWidth);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", updateWidth);
-    };
-  }, []);
-
+export function FourthBentoAnimation() {
   return (
-    <div
-      className="w-full h-full flex flex-col relative"
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="absolute inset-0 flex -z-10 [mask:linear-gradient(180deg,transparent,black_40%,black_40%,transparent)] ">
-        <div className=" w-1/2 h-full flex items-start justify-between">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-px h-5 bg-primary first:bg-transparent"
-            ></div>
-          ))}
-        </div>
-        <div className="w-1/2 h-full border-x border-border/70 border-dashed flex items-start justify-between">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-px h-5 bg-primary first:bg-transparent"
-            ></div>
-          ))}
-        </div>
-        <div className=" w-1/2 h-full flex items-start justify-between">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-px h-5 bg-primary first:bg-transparent"
-            ></div>
-          ))}
-        </div>
-        <div className="w-1/2 h-full border-x border-border/70 border-dashed flex items-start justify-between">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-px h-5 bg-primary first:bg-transparent "
-            ></div>
-          ))}
-        </div>
-        <div className=" w-1/2 h-full flex items-start justify-between">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-px h-5 bg-primary first:bg-transparent"
-            ></div>
-          ))}
-        </div>
-        <div className="w-1/2 h-full border-x border-border/70 border-dashed flex items-start justify-between">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-px h-5 bg-primary first:bg-transparent"
-            ></div>
-          ))}
-        </div>
-        <div className=" w-1/2 h-full flex items-start justify-between">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-px h-5 bg-primary first:bg-transparent"
-            ></div>
-          ))}
-        </div>
-        <div className="w-1/2 h-full border-x border-border/70 border-dashed flex items-start justify-between">
-          {Array.from({ length: 5 }).map((_, index) => (
-            <div
-              key={index}
-              className="w-px h-5 bg-primary first:bg-transparent"
-            ></div>
-          ))}
-        </div>
-      </div>
-
-      {/* Days of the week */}
-      <div className="absolute top-4 left-0 right-0 flex justify-between max-w-md mx-auto px-8 text-sm text-gray-500">
-        <span>Tue</span>
-        <span>Wed</span>
-        <span>Thu</span>
-        <span>Fri</span>
-        <span>Sat</span>
-      </div>
-
-      <motion.div
-        className="absolute top-10 w-[2px] h-[calc(100%-80px)] bg-gradient-to-b from-black dark:from-accent to-transparent z-10"
-        style={{
-          x: smoothX,
-          translateX: "-50%",
-        }}
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          opacity: { duration: 0.2 },
-          default: { duration: 0 }, // Makes position update instant
-        }}
-      />
-      <motion.div
-        className="absolute top-14 bg-black dark:bg-accent h-6 z-20 flex items-center justify-center text-xs p-2 rounded-md shadow-[0px_2.2px_6.6px_0px_rgba(18,43,105,0.04),0px_1.1px_2.2px_0px_rgba(18,43,105,0.08),0px_0px_0px_1.1px_rgba(18,43,105,0.08),0px_1.1px_0px_0px_rgba(255,255,255,0.20)_inset,0px_4.4px_6.6px_0px_rgba(255,255,255,0.01)_inset]"
-        style={{
-          x: smoothX,
-          translateX: "-50%",
-        }}
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-        }}
-        transition={{
-          opacity: { duration: 0.2 },
-          default: { duration: 0 }, // Makes position update instant
-        }}
-      >
-        <span className="text-white">12:00 AM</span>
-      </motion.div>
-
-      <div
-        className="w-full absolute grid gap-10 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/3"
-        ref={containerRef}
-      >
-        <AnimatePresence>
-          {translateXValues.map((translateX, index) => (
-            <motion.div
-              key={index}
-              initial={{
-                opacity: 0,
-                x:
-                  index % 2 === 0
-                    ? -50
-                    : containerRef.current?.getBoundingClientRect().width || 0,
-              }}
-              animate={
-                isInView
-                  ? {
-                      opacity: 1,
-                      x: translateX,
-                    }
-                  : {
-                      opacity: 0,
-                      x:
-                        index % 2 === 0
-                          ? -50
-                          : containerRef.current?.getBoundingClientRect()
-                              .width || 0,
-                    }
-              }
-              exit={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-              transition={{
-                type: "spring",
-                stiffness: 220,
-                damping: 18,
-                duration: 0.3,
-                delay: startAnimationDelay + index * 0.2,
-              }}
-              className={`flex items-center h-8 justify-center gap-2 rounded-lg w-[250px] p-2 shadow-[0px_9px_5px_0px_#00000005,0px_4px_4px_0px_#00000009,0px_1px_2px_0px_#00000010] ${boxConfigs[index].className}`}
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 h-[95%]">
+      <Card className="col-span-1 rounded-md row-span-1 overflow-hidden border bg-gradient-to-br from-slate-50 to-slate-100 transition-all dark:from-slate-900 dark:to-slate-800 shadow-none">
+        <CardHeader className="relative pb-2">
+          <CardTitle className="text-xl font-bold">Animated Pointer</CardTitle>
+          <CardDescription className="text-sm text-blue-400 dark:text-blue-300">
+            A custom pointer with different color
+          </CardDescription>
+        </CardHeader>        
+        <CardContent className="relative flex h-40 items-center justify-center p-6">
+          <span className="pointer-events-none text-center text-xl font-medium text-slate-800 dark:text-slate-200">
+            Move your cursor here
+          </span>
+        </CardContent>
+        <Pointer>
+          <motion.div
+            animate={{
+              scale: [0.8, 1, 0.8],
+              rotate: [0, 5, -5, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="text-pink-600"
             >
-              <p className="font-medium text-sm">{boxConfigs[index].title}</p>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
+              <motion.path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                fill="currentColor"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{
+                  duration: 0.8,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            </svg>
+          </motion.div>
+        </Pointer>
+      </Card>
+
+      <Card className="col-span-1 rounded-md row-span-1 overflow-hidden border bg-gradient-to-br from-blue-50 to-blue-100 transition-all dark:from-blue-900 dark:to-blue-800 shadow-none">
+        <CardHeader className="relative pb-2">
+          <CardTitle className="text-xl font-bold">Colored Pointer</CardTitle>
+          <CardDescription className="text-sm text-blue-700 dark:text-blue-300">
+            A custom pointer with different color
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="relative flex h-40 items-center justify-center p-6">
+          <span className="pointer-events-none text-center text-xl font-medium text-blue-800 dark:text-blue-200">
+            Try me out
+          </span>
+        </CardContent>
+        <Pointer className="fill-blue-500" />
+      </Card>
+
+      
     </div>
   );
 }

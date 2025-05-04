@@ -4,6 +4,8 @@ import { colorWithOpacity, getRGBA } from "@/lib/utils";
 import NumberFlow from "@number-flow/react";
 import { motion, useInView } from "motion/react";
 import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
+import { AnimatedListDemo } from "@/components/animated-list-demo";
+
 
 interface LineChartProps {
   data: number[];
@@ -256,8 +258,8 @@ export function NumberFlowCounter({
 }
 
 export function ThirdBentoAnimation({
-  data,
-  toolTipValues,
+  // data,
+  // toolTipValues,
   color = "var(--secondary)",
   startAnimationDelay = 0,
   once = false,
@@ -303,20 +305,10 @@ export function ThirdBentoAnimation({
           delay: startAnimationDelay ? startAnimationDelay + 0.3 : 0.3,
           ease: "easeOut",
         }}
-        className="absolute top-[60%] left-1/2 -translate-x-1/2 w-[2px] h-32 bg-gradient-to-b from-[var(--color)] to-[var(--color-transparent)]"
+        className="absolute top-[60%] left-1/2 -translate-x-1/2  bg-gradient-to-b from-[var(--color)] to-[var(--color-transparent)]"
       ></motion.div>
-      <NumberFlowCounter
-        toolTipValues={toolTipValues}
-        shouldAnimate={shouldAnimate}
-        startAnimationDelay={startAnimationDelay}
-      />
-      <LineChart
-        data={data}
-        height={200}
-        width={600}
-        color={computedColor}
-        shouldAnimate={shouldAnimate}
-        startAnimationDelay={startAnimationDelay}
+      <AnimatedListDemo 
+        className="absolute right-2 top-4 h-[300px] w-full scale-88 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" 
       />
     </div>
   );

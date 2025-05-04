@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export const Icons = {
   logo: ({ className }: { className?: string }) => (
@@ -2460,5 +2461,86 @@ export const Icons = {
         </clipPath>
       </defs>
     </svg>
+  ),
+  clickup: () => (
+    <Image
+      src="/logos/clickup.svg"
+      alt="clickup"
+      width={52}
+      height={60}
+      className="w-[52px] h-[60px]"
+      />
+  ),
+  confluence: () => (
+    <Image
+      src="/logos/confluence.svg"
+      alt="confluence"
+      width={52}
+      height={60}
+      className="w-[52px] h-[60px]"
+      />
+  ),
+  dropbox: () => (
+    <Image
+      src="/logos/dropbox.svg"
+      alt="dropbox"
+      width={52}
+      height={60}
+      className="w-[52px] h-[60px]"
+      />
+  ),
+  github: () => (
+    <Image
+      src="/logos/github.svg"
+      alt="github"
+      width={52}
+      height={60}
+      className="w-[52px] h-[60px]"
+      />
+  ),
+  gmail: () => (
+    <Image
+      src="/logos/gmail.svg"
+      alt="gmail"
+      width={52}
+      height={60}
+      className="w-[52px] h-[60px]"
+      />
+  ),
+  hubspot: () => (
+    <Image
+      src="/logos/hubspot.svg"
+      alt="hubspot"
+      width={52}
+      height={60}
+      className="w-[52px] h-[60px]"
+      />
+  ),
+  aws: () => (
+    <Image
+      src="/logos/aws.svg"
+      alt="aws"
+      width={52}
+      height={60}
+      className="w-[52px] h-[60px]"
+      />
+  ),
+  salesforce: () => (
+    <Image
+      src="/logos/salesforce.svg"
+      alt="Salesforce"
+      width={52}
+      height={60}
+      className="w-[52px] h-[60px]"
+      />
+  ),
+  slack: () => (
+    <Image
+      src="/logos/slack.svg"
+      alt="slack"
+      width={52}
+      height={60}
+      className="w-[52px] h-[60px]"
+      />
   ),
 };

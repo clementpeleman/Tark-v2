@@ -3,7 +3,7 @@ import { FourthBentoAnimation } from "@/components/fourth-bento-animation";
 import { SecondBentoAnimation } from "@/components/second-bento-animation";
 import { ThirdBentoAnimation } from "@/components/third-bento-animation";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
-import { Globe } from "@/components/ui/globe";
+// import { Globe } from "@/components/ui/globe";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -312,23 +312,23 @@ export const siteConfig = {
     ],
   },
   bentoSection: {
-    title: "Empower Your Workflow with AI",
+    title: "How Tark Works",
     description:
-      "Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to streamline your operations.",
+      "From enterprise search to AI harmonization, see how Tark unifies your knowledge base and AI capabilities into one powerful, secure platform.",
     items: [
       {
         id: 1,
         content: <FirstBentoAnimation />,
         title: "Real-time AI Collaboration",
         description:
-          "Experience real-time assistance. Ask your AI Agent to coordinate tasks, answer questions, and maintain team alignment.",
+          "Search across all your enterprise data sources in one place. Get instant, contextually relevant answers from your company's knowledge base.",
       },
       {
         id: 2,
         content: <SecondBentoAnimation />,
         title: "Seamless Integrations",
         description:
-          "Unite your favorite tools for effortless connectivity. Boost productivity through interconnected workflows.",
+          "Ingest data from your favorite tools for effortless connectivity. Tark works in addition to your existing tools and systems.",
       },
       {
         id: 3,
@@ -340,16 +340,16 @@ export const siteConfig = {
             ]}
           />
         ),
-        title: "Instant Insight Reporting",
+        title: "Unify Usage & Billing",
         description:
-          "Transform raw data into clear insights in seconds. Empower smarter decisions with real-time, always-learning intelligence.",
+          "Simplify AI costs with consolidated billing across all models. Track usage, manage budgets, and optimize spending — all from one central dashboard.",
       },
       {
         id: 4,
-        content: <FourthBentoAnimation once={false} />,
-        title: "Smart Automation",
+        content: <FourthBentoAnimation />,
+        title: "Agentic Search",
         description:
-          "Set it, forget it. Your AI Agent tackles repetitive tasks so you can focus on strategy, innovation, and growth.",
+          "For complex tasks, Tark can act as an agent. It can search, summarize, and even take action on your behalf.",
       },
     ],
   },
@@ -666,7 +666,7 @@ export const siteConfig = {
         id: 2,
         content: (
           <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden [mask-image:linear-gradient(to_top,transparent,black_50%)] -translate-y-20">
-            <Globe className="top-28" />
+            {/* <Globe className="top-28" /> */}
           </div>
         ),
 
