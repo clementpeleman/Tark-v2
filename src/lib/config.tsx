@@ -134,8 +134,8 @@ export const siteConfig = {
         name: "Google Gemini",
         logo: (
           <Image
-          src="/logos/Google_Gemini_Logo.svg"
-          alt="Anthropic logo"
+          src="/logos/Gemini_logo.svg"
+          alt="Gemini logo"
           width={130}
           height={25}
           className="dark:brightness-0 dark:invert pb-4"
@@ -148,7 +148,7 @@ export const siteConfig = {
         logo: (
           <Image 
           src="/logos/Salesforce_logo.svg"
-          alt="Anthropic logo"
+          alt="Salesforce logo"
           width={90}
           height={80}
           className="dark:invert"
