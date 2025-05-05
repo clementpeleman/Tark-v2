@@ -3,7 +3,7 @@ import { FourthBentoAnimation } from "@/components/fourth-bento-animation";
 import { SecondBentoAnimation } from "@/components/second-bento-animation";
 import { ThirdBentoAnimation } from "@/components/third-bento-animation";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
-// import { Globe } from "@/components/ui/globe";
+import { Globe } from "@/components/ui/globe";
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Image from "next/image";
@@ -333,12 +333,7 @@ export const siteConfig = {
       {
         id: 3,
         content: (
-          <ThirdBentoAnimation
-            data={[20, 30, 25, 45, 40, 55, 75]}
-            toolTipValues={[
-              1234, 1678, 2101, 2534, 2967, 3400, 3833, 4266, 4700, 5133,
-            ]}
-          />
+          <ThirdBentoAnimation once={false}/>
         ),
         title: "Unify Usage & Billing",
         description:
@@ -666,7 +661,7 @@ export const siteConfig = {
         id: 2,
         content: (
           <div className="relative flex size-full max-w-lg items-center justify-center overflow-hidden [mask-image:linear-gradient(to_top,transparent,black_50%)] -translate-y-20">
-            {/* <Globe className="top-28" /> */}
+            <Globe className="top-28" />
           </div>
         ),
 
