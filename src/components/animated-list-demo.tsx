@@ -12,35 +12,35 @@ interface Item {
 }
 
 let notifications = [
-    {
-      name: "Usage Alert",
-      description: "ChatGPT-4 usage at 80% of quota",
-      time: "2m ago",
-      icon: "📊",
-      color: "#FFB800", // Warning yellow
-    },
-    {
-      name: "Cost Optimization",
-      description: "Switched to Claude for better pricing",
-      time: "5m ago",
-      icon: "💰",
-      color: "#00C9A7", // Success green
-    },
-    {
-      name: "Billing Update",
-      description: "Monthly invoice generated",
-      time: "10m ago",
-      icon: "📄",
-      color: "#1E86FF", // Info blue
-    },
-    {
-      name: "Usage Spike",
-      description: "Detected in Sales department",
-      time: "15m ago",
-      icon: "📈",
-      color: "#FF3D71", // Alert red
-    },
-  ];
+  {
+    name: "Shared Insight",
+    description: "Marketing team reviewed Q2 trends",
+    time: "2m ago",
+    icon: "🧠",
+    color: "#1E86FF", // Info blue
+  },
+  {
+    name: "Workflow Triggered",
+    description: "Follow-up tasks created from sales analysis",
+    time: "5m ago",
+    icon: "⚙️",
+    color: "#00C9A7", // Success green
+  },
+  {
+    name: "Decision Logged",
+    description: "Leadership approved product roadmap changes",
+    time: "10m ago",
+    icon: "🗂️",
+    color: "#FFB800", // Warning yellow
+  },
+  {
+    name: "Collaboration Started",
+    description: "AI workspace launched with Ops team",
+    time: "15m ago",
+    icon: "🤝",
+    color: "#FF3D71", // Alert red
+  },
+];
 
 notifications = Array.from({ length: 10 }, () => notifications).flat();
 
@@ -54,7 +54,7 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
         // light styles
         "bg-white [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)]",
         // dark styles
-        "transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]",
+        "transform-gpu dark:bg-transparent dark:backdrop-blur-md dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]"
       )}
     >
       <div className="flex flex-row items-center gap-3">
@@ -81,16 +81,12 @@ const Notification = ({ name, description, icon, color, time }: Item) => {
   );
 };
 
-export function AnimatedListDemo({
-  className,
-}: {
-  className?: string;
-}) {
+export function AnimatedListDemo({ className }: { className?: string }) {
   return (
     <div
       className={cn(
         "relative flex h-[500px] w-full flex-col overflow-hidden p-2",
-        className,
+        className
       )}
     >
       <AnimatedList>

@@ -6,7 +6,6 @@ import { motion, useInView } from "motion/react";
 import { CSSProperties, useCallback, useEffect, useRef, useState } from "react";
 import { AnimatedListDemo } from "@/components/animated-list-demo";
 
-
 interface LineChartProps {
   data: number[];
   height?: number;
@@ -94,7 +93,7 @@ export function LineChart({
 
   const getColorWithOpacity = useCallback(
     (opacity: number) => colorWithOpacity(computedColor, opacity),
-    [computedColor],
+    [computedColor]
   );
 
   return (
@@ -260,10 +259,14 @@ export function NumberFlowCounter({
 export function ThirdBentoAnimation({
   // data,
   // toolTipValues,
+  // data,
+  // toolTipValues,
   color = "var(--secondary)",
   startAnimationDelay = 0,
   once = false,
 }: {
+  // data: number[];
+  // toolTipValues: number[];
   // data: number[];
   // toolTipValues: number[];
   color?: string;
@@ -272,8 +275,10 @@ export function ThirdBentoAnimation({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: once, amount: "some" });
+  const isInView = useInView(ref, { once: once, amount: "some" });
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const [computedColor, setComputedColor] = useState(color);
+  const [animationKey, setAnimationKey] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {
@@ -283,7 +288,7 @@ export function ThirdBentoAnimation({
   useEffect(() => {
     if (isInView) {
       setShouldAnimate(true);
-      setAnimationKey(prev => prev + 1);
+      setAnimationKey((prev) => prev + 1);
     } else {
       setShouldAnimate(false);
     }
@@ -301,6 +306,7 @@ export function ThirdBentoAnimation({
     >
       <motion.div
         key={animationKey}
+        key={animationKey}
         initial={{ opacity: 0 }}
         animate={{ opacity: shouldAnimate ? 1 : 0 }}
         transition={{
@@ -309,10 +315,11 @@ export function ThirdBentoAnimation({
           ease: "easeOut",
         }}
         className="absolute top-[60%] left-1/2 -translate-x-1/2  bg-gradient-to-b from-[var(--color)] to-[var(--color-transparent)]"
+        className="absolute top-[60%] left-1/2 -translate-x-1/2  bg-gradient-to-b from-[var(--color)] to-[var(--color-transparent)]"
       ></motion.div>
-      <AnimatedListDemo 
+      <AnimatedListDemo
         key={`list-${animationKey}`}
-        className="absolute right-2 top-4 h-[300px] w-full scale-88 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90" 
+        className="absolute right-2 top-4 h-[300px] w-full scale-88 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-90"
       />
     </div>
   );
