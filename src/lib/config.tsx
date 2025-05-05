@@ -60,7 +60,6 @@ export const siteConfig = {
   ],
   links: {
     email: "clement@tark.app",
-    email: "clement@tark.app",
     twitter: "https://twitter.com/calaiapp",
     discord: "https://discord.gg/calaiapp",
     github: "https://github.com/calaiapp",
@@ -91,14 +90,10 @@ export const siteConfig = {
     ),
     badge: "Introducing Agentic Capabilities",
     title: "From scattered data to instant answers.",
-    badge: "Introducing Agentic Capabilities",
-    title: "From scattered data to instant answers.",
     description:
-      "Tark unifies your enterprise data with AI, so your team spends less time searching — and more time solving.",
       "Tark unifies your enterprise data with AI, so your team spends less time searching — and more time solving.",
     cta: {
       primary: {
-        text: "Book a Demo",
         text: "Book a Demo",
         href: "#",
       },
@@ -112,7 +107,6 @@ export const siteConfig = {
     companyLogos: [
       {
         id: 1,
-        name: "OpenAI",
         name: "OpenAI",
         logo: (
           <svg
@@ -136,7 +130,6 @@ export const siteConfig = {
       {
         id: 2,
         name: "Anthropic",
-        name: "Anthropic",
         logo: (
           <Image
             src="/logos/Anthropic_logo.svg"
@@ -149,7 +142,6 @@ export const siteConfig = {
       },
       {
         id: 3,
-        name: "Google Gemini",
         name: "Google Gemini",
         logo: (
           <Image
@@ -408,13 +400,11 @@ export const siteConfig = {
   },
   featureSection: {
     title: "Features That Matter",
-    title: "Features That Matter",
     description:
       "Discover how we transforms your Enterprise AI experience with our powerful features.",
     items: [
       {
         id: 1,
-        title: "Enterprise AI Hub",
         title: "Enterprise AI Hub",
         content:
           "Unify every AI model your team uses — access, manage, and switch between them from a single platform.",
@@ -444,9 +434,7 @@ export const siteConfig = {
   },
   bentoSection: {
     title: "How Tark Works",
-    title: "How Tark Works",
     description:
-      "From enterprise search to AI harmonization, see how Tark unifies your knowledge base and AI capabilities into one powerful, secure platform.",
       "From enterprise search to AI harmonization, see how Tark unifies your knowledge base and AI capabilities into one powerful, secure platform.",
     items: [
       {
@@ -510,9 +498,7 @@ export const siteConfig = {
   ],
   growthSection: {
     title: "Built Security-First",
-    title: "Built Security-First",
     description:
-      "Deploy Tark on your own infrastructure or private cloud — your data stays fully in your control.",
       "Deploy Tark on your own infrastructure or private cloud — your data stays fully in your control.",
     items: [
       {
@@ -806,9 +792,7 @@ export const siteConfig = {
         ),
 
         title: "Granular Access Controls",
-        title: "Granular Access Controls",
         description:
-          "Tark supports fine-grained role-based access control (RBAC), so teams can define exactly who can access what — ensuring the right people see the right data.",
           "Tark supports fine-grained role-based access control (RBAC), so teams can define exactly who can access what — ensuring the right people see the right data.",
       },
     ],

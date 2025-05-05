@@ -275,10 +275,8 @@ export function ThirdBentoAnimation({
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: once, amount: "some" });
-  const isInView = useInView(ref, { once: once, amount: "some" });
   const [shouldAnimate, setShouldAnimate] = useState(false);
   const [computedColor, setComputedColor] = useState(color);
-  const [animationKey, setAnimationKey] = useState(0);
   const [animationKey, setAnimationKey] = useState(0);
 
   useEffect(() => {
@@ -306,7 +304,6 @@ export function ThirdBentoAnimation({
     >
       <motion.div
         key={animationKey}
-        key={animationKey}
         initial={{ opacity: 0 }}
         animate={{ opacity: shouldAnimate ? 1 : 0 }}
         transition={{
@@ -314,7 +311,6 @@ export function ThirdBentoAnimation({
           delay: startAnimationDelay ? startAnimationDelay + 0.3 : 0.3,
           ease: "easeOut",
         }}
-        className="absolute top-[60%] left-1/2 -translate-x-1/2  bg-gradient-to-b from-[var(--color)] to-[var(--color-transparent)]"
         className="absolute top-[60%] left-1/2 -translate-x-1/2  bg-gradient-to-b from-[var(--color)] to-[var(--color-transparent)]"
       ></motion.div>
       <AnimatedListDemo
