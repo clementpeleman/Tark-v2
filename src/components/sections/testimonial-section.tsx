@@ -12,7 +12,7 @@ export function TestimonialSection() {
     >
       <SectionHeader>
         <h2 className="text-3xl md:text-4xl font-medium tracking-tighter text-center text-balance">
-          Unlock your company's knowledge.
+          Unlock your company&apos;s knowledge.
         </h2>
       </SectionHeader>
       <SocialProofTestimonials testimonials={testimonials} />

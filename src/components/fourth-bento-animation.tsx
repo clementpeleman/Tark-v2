@@ -1,14 +1,14 @@
 "use client";
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Pointer } from "@/components/magicui/pointer";
-import { motion } from "motion/react";
+// import {
+//   Card,
+//   CardContent,
+//   CardDescription,
+//   CardHeader,
+//   CardTitle,
+// } from "@/components/ui/card";
+// import { Pointer } from "@/components/magicui/pointer";
+// import { motion } from "motion/react";
 import { AnimatedBeamMultipleOutputDemo } from "./animated-beam-mi";
 
 export function FourthBentoAnimation() {

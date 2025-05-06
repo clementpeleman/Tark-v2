@@ -25,7 +25,7 @@ const Circle = forwardRef<
 Circle.displayName = "Circle";
 
 export function SecondBentoAnimation() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  // const containerRef = useRef<HTMLDivElement>(null);
   const div1Ref = useRef<HTMLDivElement>(null);
 
   return (
