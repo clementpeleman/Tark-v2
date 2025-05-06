@@ -94,7 +94,7 @@ export const siteConfig = {
       "Tark unifies your enterprise data with AI, so your team spends less time searching — and more time solving.",
     cta: {
       primary: {
-        text: "Book a Demo",
+        text: "Start Onboarding",
         href: "#",
       },
       secondary: {
